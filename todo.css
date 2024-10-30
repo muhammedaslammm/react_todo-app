@@ -30,7 +30,7 @@ body {
   grid-template-columns: 60% 40%;
   overflow: hidden;
 
-  .todo__left {
+  .todo__application {
     background-color: rgb(52, 52, 52);
     padding: 2.7rem;
     overflow-y: scroll;
@@ -99,5 +99,23 @@ body {
     font-weight: 500;
     border-radius: 0.5rem;
     cursor: pointer;
+  }
+}
+
+.todos {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  gap: 0.8rem;
+  row-gap: 1rem;
+  margin: 2rem 0;
+  .todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    color: rgb(146, 146, 146);
+    background-color: rgb(80, 79, 79);
+    padding: 0.2rem 0.7rem;
+    border-radius: 0.5rem;
   }
 }

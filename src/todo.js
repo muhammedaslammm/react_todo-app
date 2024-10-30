@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
-import LeftComponent from "./components/leftComponent";
-import RightComponent from "./components/rightComponent";
+import LeftComponent from "./components/Left";
+import RightComponent from "./components/Right";
 
 let Application = () => {
   return (
