@@ -3,27 +3,30 @@ import TodoList from "./TodoList";
 import { useState } from "react";
 
 let LeftComponent = () => {
-  let [inputValue, setInputValue] = useState("");
   let [todos, setTodos] = useState([]);
 
-  let trackInput = (event) => {
-    setInputValue(event.target.value);
-  };
-
-  let addTodo = () => {
+  let addTodo = (inputValue) => {
     setTodos([...todos, inputValue]);
-    setInputValue("");
   };
 
-  let deleteTodo = () => {};
+  let updateTodo = (index, newValue) => {
+    let updatedTodos = todos.map((todo, i) => {
+      return i === index ? newValue : todo;
+    });
+    setTodos(updatedTodos);
+  };
+
+  let deleteTodo = (index) => {
+    let newTodoList = todos.filter((todo, i) => {
+      if (i !== index) return todo;
+    });
+    setTodos(newTodoList);
+  };
+
   return (
     <div className="todo__application">
-      <InputSection
-        trackInput={trackInput}
-        addTodo={addTodo}
-        inputValue={inputValue}
-      />
-      <TodoList todos={todos} />
+      <InputSection addTodo={addTodo} />
+      <TodoList todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} />
     </div>
   );
 };
